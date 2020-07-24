@@ -1,0 +1,21 @@
+.choice {
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
+
+  &__title {
+      color: #1D2327;
+      font-size: 14px;
+      margin-right: 8px;
+  }
+
+  &__select {
+      width: 50%;
+      
+      &--multi {
+          width: 250px;
+          max-width: 250px;
+      }
+  }
+
+}

@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700&display=swap');
+
+.select {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 8px;
+  border: 1px solid #bcc3c7;
+  fill: #bcc3c7;
+  color: #010C14;
+  padding: 0 8px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  cursor: pointer;
+  position: relative;
+
+  &__dropdown {
+      position: absolute;
+      top: 42px;
+      left: -1px;
+      display: none;
+      width: 100%;
+      border: 1px solid #bcc3c7;
+      border-top: 1px solid transparent;
+      z-index: 1;
+      background-color: #fff;
+
+      &--active {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          max-height: 200px;
+          overflow-x: hidden;
+          overflow-y: auto;
+      }
+
+      &--input {
+          border: none;
+          width: 85%;
+          padding: 5px 0;
+          outline: none;
+      }
+  }
+
+
+  &__button {
+      background: none;
+      border: none;
+      width: 100%;
+      height: 25px;
+      display: flex;
+      justify-content: space-between;
+      padding: 8px;
+      outline: none;
+      cursor: pointer;
+  }
+}
+
+.checked {
+  display: flex;
+  padding-left: 1.2em;
+  padding: 12px 0;
+  width: 100%;
+  border: 1px solid transparent;
+
+  &__input {
+      position: relative;
+  }
+
+  &__title {
+      display: flex;
+      align-items: center;
+  }
+
+  &__icon {
+      font-size: 16px;
+      margin-right: 1rem*0.5;
+  }
+
+  &:hover {
+      background-color: #f9f9f9;
+      border-left: 1px solid #bcc3c7;
+      border-right: 1px solid #bcc3c7;
+      cursor: pointer;
+  }
+
+  &--multiselect {
+      &__icon {
+          margin-right: -1rem;
+          visibility: hidden;
+          opacity: 0;
+          transition: opacity 0.25s ease-out 0.25s,
+          margin-right ease-out 0.25s;
+          visibility: 0.25s ease-out;
+      }
+
+      &__input {
+
+          &:checked~ {
+
+              .checked__title {
+                  >.checked__icon {
+                      margin-right: 1rem*0.5;
+                      visibility: visible;
+                      opacity: 1;
+                  }
+              }
+
+          }
+      }
+  }
+}
+
+.selected {
+  &__item {
+      background-color: rgb(9, 100, 206);
+      border-radius: 2px;
+      color: #fff;
+      margin-right: 3px;
+      margin-top: 5px;
+      padding: 3px 2px;
+  }
+  &__counter {
+      position: absolute;
+      bottom: 0;
+      right: 32px;
+  }
+  &__empty {
+      line-height: 25px;
+  }
+}
+
+

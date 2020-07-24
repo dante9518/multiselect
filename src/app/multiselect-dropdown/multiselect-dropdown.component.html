@@ -1,0 +1,23 @@
+<div #multiselect class="select">
+  <div class="select__button" (click)="toggleDropdown()" [class.disabled]="disabled">
+    <div *ngIf="selectedItems.length !== 0">
+      <span (click)="onItemClick(item)" class="selected__item" *ngFor="let item of slicedSelectedItems;trackBy: trackByFn">
+        {{item[dataKey] | slice:0:10}}
+      </span>
+      <span class="selected__counter">{{itemsCounter !== 0 ? '+' + itemsCounter : ''}}</span>
+    </div>
+    <span *ngIf="selectedItems.length === 0">{{ placeholder }}</span>
+  </div>
+  <div class="select__dropdown" [class.select__dropdown--active]="open">
+    <input type="text" placeholder="Search" class="select__dropdown--input" #searchInput />
+    <div class="checked checked--multiselect" *ngFor="let item of copyItems" (click)="onItemClick(item)">
+      <input class="checked__input" type="checkbox" [checked]="isItemAlreadySelected(item)">
+      <span class="checked__title">
+        {{ item[dataKey] }}
+      </span>
+    </div>
+    <span class="selected__empty" *ngIf="notFound">
+      Not Found
+    </span>
+  </div>
+</div>
